@@ -179,7 +179,7 @@
 			req=res.data.results
 			for(var i = 0; i < req.length; i++){
 				console.log(req[i])
-				HtmlStr+="<div class='col-lg-3 col-md-6 col-sm-6 col-6 full_wdth'><div class='videoo'><div class='vid_thumbainl'><a href='born/index.html?"+req[i].objectId+"' title=''><img src="+req[i].img+"' alt=''><span class='vid-time'>"+req[i].lentime+"</span><span class='watch_later'><i class='icon-watch_later_fill'></i></span></a></div><div class='video_info'><h3><a href='born?"+req[i].objectId+"' title=''>"+req[i].title+"</a></h3><h4><a href='born?"+req[i].objectId+"' title=''>"+req[i].desc+"</a> <span class='verify_ic'><i class='icon-tick'></i></span></h4><span>686K views .<small class='posted_dt'>"+req[i].updatedAt+"</small></span></div></div></div>";
+				HtmlStr+="<div class='col-lg-3 col-md-6 col-sm-6 col-6 full_wdth'><div class='videoo'><div class='vid_thumbainl'><a href='born/index.html?"+req[i].objectId+"' title=''><img src='"+req[i].img+"' alt=''><span class='vid-time'>"+req[i].lentime+"</span><span class='watch_later'><i class='icon-watch_later_fill'></i></span></a></div><div class='video_info'><h3><a href='born?"+req[i].objectId+"' title=''>"+req[i].title+"</a></h3><h4><a href='born?"+req[i].objectId+"' title=''>"+req[i].desc+"</a> <span class='verify_ic'><i class='icon-tick'></i></span></h4><span>686K views .<small class='posted_dt'>"+req[i].updatedAt+"</small></span></div></div></div>";
 			}
 			$("#videolist").html(HtmlStr);
        })
