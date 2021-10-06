@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Oren Video Template</title>
+<title>Oren Video - 分享生活</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="" />
-<meta name="keywords" content="" />
+<meta name="description" content="分享生活中的点点滴滴。" />
+<meta name="keywords" content="生活" />
 <link rel="icon" href="images/Favicon.png">
 <link rel="stylesheet" type="text/css" href="css/animate.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -17,7 +17,9 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/responsive.css">
 <link rel="stylesheet" type="text/css" href="css/color.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="js/jquery.min.js"></script>
+<script src="js/axios.min.js"></script>
 <script src="js/config.js"></script>
 </head>
 <style>
@@ -32,23 +34,22 @@
 
 	<div class="wrapper hp_1">
 
-		
 		<section class="banner-section">
 			<div class="container">
 				<div class="banner-text">
-					<h2>分享、上传视频给您的</h2>
+					<h2>一个分享快乐的平台</h2>
 					<h2>好朋友</h2>
-					<a href="signup.html" title="">创建账户</a>
 				</div><!--banner-text end-->
-				<h3 class="headline">视频来源<a href="#" title="">newfox media</a></h3>
+				<h3 class="headline">视频来源  <a  title=""> Blueweiwei</a></h3>
 			</div>
 		</section><!--banner-section end-->
-		
+
 		<section class="vds-main">
 			<div class="vidz-row">
 				<div class="container">
 					<div class="vidz_sec">
 						<h3>精选视频</h3>
+						<a target="_black" href="./videoList.html" title="" class="view-btn">查看全部</a>
 						<div class="vidz_list">
 							<div class="row" id="videolist">
 								<!--循环体 开始
@@ -82,10 +83,7 @@
 				</div>
 			</div><!--vidz-row end-->
 			
-		</section><!--vds-main end-->
-
-
-		
+		</section><!--vds-main end-->		
 
 		<section class="services-sec">
 			<div class="container">
@@ -108,15 +106,15 @@
 						<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 							<div class="service-col">
 								<img src="images/sv3.png" alt="">
-								<h3>从 YouTube 进行简单传输</h3>
-								<p>使用简单的链接复制/粘贴从 YouTube 上传视频。.</p>
+								<h3>从 其他平台 进行简单传输</h3>
+								<p>使用简单的链接复制/粘贴从 其他平台 上传视频.</p>
 							</div><!--service-col end-->
 						</div>
 						<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 							<div class="service-col">
 								<img src="images/sv4.png" alt="">
-								<h3>通过亚马逊赚钱 </h3>
-								<p>通过您频道的亚马逊联盟获得额外收入。.</p>
+								<h3>无偿分享 </h3>
+								<p>通过分享点滴生活，抛弃烦恼，快乐生活.</p>
 							</div><!--service-col end-->
 						</div>
 					</div>
@@ -145,7 +143,6 @@
 		</section><!--more_items_sec end-->
 
 	</div><!--wrapper end-->
-<script src="js/axios.min.js"></script>
 <script>
 	// $.ajax({
 	// 					url: serverURL+'?order=-createdAt',  
@@ -166,20 +163,19 @@
     //                     }
              
 	// })
-	function time(now){
-		time=formatDate(now, 'yyyy-MM-dd h:m:s');
-		return time
+	function timedesc(now){
+		return moment(now).format('YYYY-MM-DD HH:mm')
 	}
 	axios({
          method:'GET',
-         url: serverURL+'?order=-createdAt',
+         url: serverURL+'?order=-createdAt&limit=8',
          headers:headers
 		}).then(res =>{
             HtmlStr="";
 			req=res.data.results
 			for(var i = 0; i < req.length; i++){
 				console.log(req[i])
-				HtmlStr+="<div class='col-lg-3 col-md-6 col-sm-6 col-6 full_wdth'><div class='videoo'><div class='vid_thumbainl'><a href='born/index.html?"+req[i].objectId+"' title=''><img src='"+req[i].img+"' alt=''><span class='vid-time'>"+req[i].lentime+"</span><span class='watch_later'><i class='icon-watch_later_fill'></i></span></a></div><div class='video_info'><h3><a href='born?"+req[i].objectId+"' title=''>"+req[i].title+"</a></h3><h4><a href='born?"+req[i].objectId+"' title=''>"+req[i].desc+"</a> <span class='verify_ic'><i class='icon-tick'></i></span></h4><span>686K views .<small class='posted_dt'>"+req[i].updatedAt+"</small></span></div></div></div>";
+				HtmlStr+="<div class='col-lg-3 col-md-6 col-sm-6 col-6 full_wdth'><div class='videoo'><div class='vid_thumbainl'><a target='_black' href='born/index.html?"+req[i].objectId+"' title=''><img src='"+req[i].img+"' alt=''><span class='watch_later'><i class='icon-watch_later_fill'></i></span></a></div><div class='video_info'><h3><a target='_black' href='born?"+req[i].objectId+"' title=''>"+req[i].title+"</a></h3><h4><a target='_black' href='born/index.html?"+req[i].objectId+"' title=''>"+req[i].desc+"</a> <span class='verify_ic'><i class='icon-tick'></i></span></h4><span><small class='posted_dt'>"+timedesc(req[i].createdAt)+"</small></span></div></div></div>";
 			}
 			$("#videolist").html(HtmlStr);
        })

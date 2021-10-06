@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Oren Video Template</title>
+<title>Oren Video - 分享生活</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -34,7 +34,7 @@ axios({
 }).then(res =>{
 	console.log(res)
 	console.log(serverURL+'/'+get_id())
-	HtmlStr='<video id="my-video" class="video-js" controls preload="auto" width="640" height="264" poster="'+res.data.imgurl+'" data-setup="{}" ><source  src="'+res.data.url+'" type="video/mp4" /><source  src="'+res.data.url+'" type="video/webm" /></video>';
+	HtmlStr='<video id="my-video" class="video-js" controls preload="auto" width="640" height="264" poster="'+res.data.img+'" data-setup="" ><source  src="'+res.data.url+'" type="video/mp4" /><source  src="'+res.data.url+'" type="video/webm" /></video>';
 	$(".vid-pr").html(HtmlStr);
 
 })
@@ -66,14 +66,14 @@ axios({
 				    <source id='video_1'src="" type="video/webm" />
 				</video> -->
 			</div><!--vid-pr end-->
-			<div class="row">
-				<div class="col-lg-9">
+			<div class="row" style="margin:0 30px">
+				<div class="col-lg-12">
 					<div class="mn-vid-sc single_video">
 						<div class="vid-1">
 							<div class="vid-info">
 								<h3></h3>
 								<div class="info-pr">
-									<span>60,723,169 views</span>
+									<span>当前 评论功能不可用</span>
 									<ul class="pr_links">
 										<li>
 											<button data-toggle="tooltip" data-placement="top" title="I like this">
@@ -189,7 +189,6 @@ axios({
 	</section><!--more_items_sec end-->
 
 </div><!--wrapper end-->
-
 
 <script src="../js/jquery.min.js"></script>
 <script src="../js/popper.js"></script>
